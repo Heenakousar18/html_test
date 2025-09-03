@@ -1,0 +1,21 @@
+class Vehicle:
+    def _init_(self, brand, color):
+        self.brand = brand
+        self.color = color
+        print("Vehicle constructor called.")
+
+    def display_info(self):
+        print(f"Brand: {self.brand}, Color: {self.color}")
+class Car(Vehicle):
+    def _init_(self, brand, color, model):
+        super()._init_(brand, color)
+        
+        self.model = model
+        print("Car constructor called.")
+
+    def display_info(self):
+        super().display_info()
+        print(f"Model: {self.model}")
+
+my_car = Car("Toyota", "blue", "Camry")
+my_car.display_info()
