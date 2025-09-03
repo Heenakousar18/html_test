@@ -1,0 +1,26 @@
+rom multipledispatch import dispatch
+
+class Calculator:
+    @dispatch(int, int)
+    def add(self, a, b):
+        """Adds two integers."""
+        print("Adding two integers.")
+        return a + b
+
+    @dispatch(float, float)
+    def add(self, a, b):
+        """Adds two floats."""
+        print("Adding two floats.")
+        return a + b
+
+    @dispatch(str, str)
+    def add(self, a, b):
+        """Concatenates two strings."""
+        print("Concatenating two strings.")
+        return a + " " + b
+
+calc = Calculator()
+
+print(f"Result for integers: {calc.add(5, 10)}")
+print(f"Result for floats: {calc.add(5.5, 10.2)}")
+print(f"Result for strings: {calc.add('Hello','World')}")
