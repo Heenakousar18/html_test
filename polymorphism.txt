@@ -1,0 +1,36 @@
+import math
+
+class Shape:
+    """A generic shape with a placeholder area method."""
+    def area(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+class Circle(Shape):
+    """Represents a circle and overrides the area() method."""
+    def _init_(self, radius):
+        if radius < 0:
+            raise ValueError("Radius cannot be negative.")
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+class Rectangle(Shape):
+    """Represents a rectangle and overrides the area() method."""
+    def _init_(self, width, height):
+        if width < 0 or height < 0:
+            raise ValueError("Width and height cannot be negative.")
+        self.width = width
+        self.height = height
+    def area(self):
+        return self.width * self.height
+
+def print_shape_area(shape_object):
+    """Takes a shape object and prints its area, demonstrating polymorphism."""
+    print(f"The area of the shape is: {shape_object.area()}")
+
+
+circle = Circle(radius=5)
+rectangle = Rectangle(width=4, height=6)
+print_shape_area(circle)
+print_shape_area(rectangle)
